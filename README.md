@@ -36,7 +36,11 @@ These resources helped us understand how to work collaboratively, manage version
 # ⚙️ Setup and Run Instructions
 
 ### Prerequisites
-(To be added)
+Git
+python
+firebase account
+google maps API Key
+internet connection
 
 ### Clone the repository
 
