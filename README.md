@@ -5,7 +5,9 @@
 
 ## Team Ember Alliance
 
----
+Farida Abdul Ganew
+Hellen Mumbai
+Kuh Hoppson
 
 # 🧠 What Our Project Does (and Why It Matters)
 
@@ -22,7 +24,7 @@ By reducing food waste and improving food distribution, our project supports **U
 This project was inspired and developed using knowledge gained from the following Grow with Google learning resources:
 
 - Google IT Support Professional Certificate
-- IT Automstion with pyton Google professional certificate
+- IT Automation with pyton Google professional certificate
 - Digital Marketing grow with google
 - Mentor Me Collective Build Phase
 - Git and GitHub collaboration practices
@@ -36,29 +38,19 @@ These resources helped us understand how to work collaboratively, manage version
 # ⚙️ Setup and Run Instructions
 
 ### Prerequisites
-Git
-python
-firebase account
-google maps API Key
-internet connection
+
 
 ### Clone the repository
 
-```bash
+bash
 git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.git
-```
+
 
 ### Navigate into the project
 
 ```bash
 cd YOUR-REPOSITORY
-```
 
-### Install project dependencies
-
-```bash
-pip install -r requirements.txt
-```
 
 ### Configure Firebase
 
@@ -70,24 +62,22 @@ Create an API key and add it to your configuration file.
 
 ### Run the application
 
-```bash
-python app.py
-```
+``bash
+bun install
+bun run dev
 
-*(Update these instructions if your team's final application uses a different framework or startup command.)*
 
----
 
 # 📁 Repository Structure
 
-```
+
 README.md
 docs/
 src/
 assets/
 presentation/
 demo/
-```
+
 ## ⚙️ Implementation Plan
 
 ### Phase 1
@@ -108,8 +98,7 @@ System testing and debugging
 
 ### Phase 5
 
-Documentation, GitHub submission, and presentation
----
+## Documentation, GitHub submission, and presentation
 
 # 🚀 Features
 (To be added)
@@ -122,7 +111,9 @@ Documentation, GitHub submission, and presentation
 
 Project developed collaboratively during the Mentor Me Collective Build Phase.
 
-*(Add each team member's name and responsibilities here if your team agrees.)*
+(Farida Abdul Ganew
+Kuh Hoppson
+Hellen Mumbai
 
 ---
 
