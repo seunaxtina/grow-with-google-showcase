@@ -39,6 +39,43 @@ These resources helped us understand how to work collaboratively, manage version
 
 ### Prerequisites
 
+ Node.js (v18 or later)
+- Bun (recommended) or npm
+
+### Install dependencies
+
+Using Bun:
+
+bash
+bun install
+Or using npm:
+
+bash
+npm install
+
+
+### Start the development server
+
+Using Bun:
+
+bash
+bun run dev
+
+Or using npm:
+
+bash
+npm run dev
+
+### Build for production
+
+bash
+npm run build
+
+
+### Preview the production build
+
+bash
+npm run preview
 
 ### Clone the repository
 
@@ -103,7 +140,6 @@ System testing and debugging
 # 🚀 Features
 (To be added)
 
----
 
 # 👥 Team
 
@@ -111,18 +147,15 @@ System testing and debugging
 
 Project developed collaboratively during the Mentor Me Collective Build Phase.
 
-(Farida Abdul Ganew
+Farida Abdul Ganew
 Kuh Hoppson
-Hellen Mumbai
+Hellen Mumbai 
 
----
 
 # 🧪 Testing
 
 The application is tested to verify that users can:
 
-- Register successfully
-- Log in securely
 - Submit food donations
 - Receive food matches
 - Accept delivery requests
