@@ -4,10 +4,12 @@
 **Mentor Me Collective – Grow with Google Build Phase Capstone Project**
 
 ## Team Ember Alliance
-
 Farida Abdul Ganew
 Hellen Mumbai
 Kuh Hoppson
+
+## Try the application ##
+{Launch Smart Food Rescue Platform} (https://mlo-mtaani.ai.studio)
 
 # 🧠 What Our Project Does (and Why It Matters)
 
