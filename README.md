@@ -8,10 +8,7 @@ Farida Abdul Ganew
 Hellen Mumbai
 Kuh Hoppson
 
-## Try the application ##
-{Launch Smart Food Rescue Platform} (https://mlo-mtaani.ai.studio)
-
-# 🧠 What Our Project Does (and Why It Matters)
+## 🧠 What Our Project Does (and Why It Matters) ## 
 
 The Smart Food Rescue Platform is a digital solution that connects grocery stores, supermarkets, restaurants, food pantries, and volunteers to reduce food waste while addressing food insecurity.
 
@@ -19,23 +16,27 @@ Every day, large amounts of edible food are discarded because there is no effici
 
 By reducing food waste and improving food distribution, our project supports **United Nations Sustainable Development Goal (SDG) 2 – Zero Hunger** and demonstrates how technology can create positive social impact.
 
----
+## 🌐 Live Application
+
+👉 [Launch Mlo Mtaani](https://mlo-mtaani.ai.studio)
+
+## 🎥 Project Walkthrough
+👉 [Watch the Mlo Mtaani Project Walkthrough](https://youtu.be/T8ETQr0MYFw?is=YUBEA2-ICv3pgWPz)
+
 
 # 🌱 Grow with Google Resources Used
 
 This project was inspired and developed using knowledge gained from the following Grow with Google learning resources:
 
-- Google IT Support Professional Certificate
-- IT Automation with pyton Google professional certificate
+- Google IT Support Professional Certificate.
 - Digital Marketing grow with google
 - Mentor Me Collective Build Phase
 - Git and GitHub collaboration practices
-- Technical documentation and project planning skills
-- Team collaboration using GitHub
+- Technical documentation and project planning skills.
+- Team collaboration using GitHub.
 
 These resources helped us understand how to work collaboratively, manage version control, document projects professionally, and build a real-world technical solution.
 
----
 
 # ⚙️ Setup and Run Instructions
 
@@ -87,7 +88,7 @@ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.git
 
 ### Navigate into the project
 
-```bash
+bash
 cd YOUR-REPOSITORY
 
 
@@ -101,7 +102,7 @@ Create an API key and add it to your configuration file.
 
 ### Run the application
 
-``bash
+bash
 bun install
 bun run dev
 
@@ -139,19 +140,9 @@ System testing and debugging
 
 ## Documentation, GitHub submission, and presentation
 
-# 🚀 Features
-(To be added)
 
+Phase.
 
-# 👥 Team
-
-**Team Ember Alliance**
-
-Project developed collaboratively during the Mentor Me Collective Build Phase.
-
-Farida Abdul Ganew
-Kuh Hoppson
-Hellen Mumbai 
 
 
 # 🧪 Testing
@@ -184,7 +175,34 @@ Possible improvements include:
 
 This project is designed to be a foundation that future cohorts can expand into a production-ready community platform.
 
----
+
+# 👥 Team
+
+**Team Ember Alliance**
+## 👥 Team Members & Contributions
+
+### Farida Abdul Ganew — Technical Lead & Developer
+- Designed and built the Mlo Mtaani application
+- Managed the technical implementation of the project
+- Developed and maintained the project codebase
+- Managed the GitHub repository, project structure, documentation, and submission workflow
+- Integrated and tested the application's technical features
+
+### Hellen Mumbai— Project Overview & Research
+- Developed the project overview
+- Helped define the problem statement and proposed solution
+- Contributed to the overall project concept and presentation
+
+### Kuh Hoppson — Data & Research
+- Led the data-related aspects of the project
+- Gathered and analyzed supporting data
+- Contributed research and evidence used to support the project's problem statement and expected impact
+
+## 🤝 Team Collaboration
+
+Team Ember Alliance worked collaboratively to develop Mlo Mtaani, combining technical development, project research, and data analysis to create a practical solution for reducing food waste and improving food redistribution.
+
+Project developed collaboratively during the Mentor Me Collective Build 
 
 # 📚 Lessons Learned
 
@@ -197,7 +215,13 @@ During this project we learned how to:
 - Build solutions for real-world problems
 - Apply agile teamwork and communication
 
----
+
+## Acknowledgements
+
+This project was created as part of the **Mentor Me Collective – Grow with Google Build Phase Capstone Program**.
+
+We thank our mentors, facilitators, and fellow scholars for their guidance, encouragement, and support throughout the project.
+
 
 # 📄 License
 
@@ -211,10 +235,3 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
 
----
-
-## Acknowledgements
-
-This project was created as part of the **Mentor Me Collective – Grow with Google Build Phase Capstone Program**.
-
-We thank our mentors, facilitators, and fellow scholars for their guidance, encouragement, and support throughout the project.
