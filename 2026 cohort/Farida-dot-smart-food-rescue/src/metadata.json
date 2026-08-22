@@ -1,6 +1,0 @@
-{
-  "name": "Mlo Mtaani",
-  "description": "Surplus Food Redistribution Network connecting vendors, pantries, and local volunteers in Nairobi, Kenya.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
