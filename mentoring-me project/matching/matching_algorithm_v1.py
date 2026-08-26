@@ -1,5 +1,5 @@
 """
-Mentor Me Capstone — Matching Algorithm & Methodology
+Mentoring-Me Capstone — Matching Algorithm & Methodology
 Weighted Scoring Model v1
 
 APPROACH: Rule-based weighted scoring (see research notes in report — chosen
@@ -30,13 +30,29 @@ CRITERIA AND WEIGHTS (grounded in Objective 1 findings):
 5. Practical fit              — 10%  (org size / logistics — lower weight, secondary to substance)
 """
 
+import os
 import pandas as pd
 import numpy as np
 
 # ===========================================================
-# STEP 1: Load real profiles from the cleaned dataset
+# STEP 1: Load real profiles from the cleaned dataset (robust path lookup)
 # ===========================================================
-df = pd.read_csv('so2020_cleaned.csv')
+_base_dir = os.path.dirname(os.path.abspath(__file__))
+_candidate_paths = [
+    os.path.join(_base_dir, 'so2020_cleaned.csv'),
+    os.path.join(_base_dir, '..', 'data', 'so2020_cleaned.csv'),
+    os.path.join(_base_dir, '..', 'so2020_cleaned.csv'),
+    'so2020_cleaned.csv'
+]
+
+df = pd.DataFrame()
+for _p in _candidate_paths:
+    if os.path.exists(_p):
+        try:
+            df = pd.read_csv(_p)
+            break
+        except Exception:
+            pass
 
 def get_mentee_pool(df):
     """

@@ -1,4 +1,4 @@
-# Matching Algorithm & Methodology
+# Mentoring-Me — Matching Algorithm & Methodology
 
 ## 1. Research: Approaches Considered
 
@@ -94,3 +94,18 @@ This was a direct, evidence-driven refinement — not a generic feature addition
 ## 8. Future Work
 
 Once the platform has real mentor sign-ups and, eventually, match-outcome data (satisfaction ratings, continued engagement), the rule-based model could be extended with a collaborative-filtering or supervised-learning layer trained on that outcome data — the weighted scoring model here would remain a strong, explainable baseline to compare any future model against.
+
+## 9. Direct LinkedIn Deep Link Generator: Zero-Dependency External Discovery
+
+### What is the Direct LinkedIn Deep Link Generator?
+A **LinkedIn Deep Link** is a dynamically constructed URL that opens LinkedIn’s official search engine with pre-filled, Boolean-optimized filters based on a mentee’s exact profile attributes and goals (*Target Role, Country, Skills, Seniority, and Mentorship keywords*).
+
+Instead of relying on fragile, rate-limited, or deprecated third-party search APIs (or scrapers that risk violating terms of service), the system generates a smart, one-click deep link that takes the user directly to live, matching mentor candidates across LinkedIn’s global network of 1B+ professionals.
+
+### Key Architectural Advantages
+1. **Resilience & Zero Deprecation Risk**: Avoids reliance on third-party APIs (e.g. Proxycurl, Google Custom Search API quotas) that can be deprecated, blocked, or altered.
+2. **Real-Time Global Reach**: Taps directly into live, active LinkedIn member data rather than cached or static datasets.
+3. **Boolean Search Precision**: Translates mentee profile preferences into structured Boolean search syntax (`AND`, `OR`, quoted phrases, location scoping, seniority keywords, and mentorship tokens).
+4. **SDG 5 Equity & Representation**: Supports an optional Women in Tech / Diversity mode (`"women in tech" OR "female leader" OR "women who code"`) to connect early-career women with senior female mentors and leaders.
+5. **Integrated Outreach Crafter**: Provides character-counted LinkedIn Connection Notes (strictly `<= 300` characters to adhere to LinkedIn's connection request limits) and InMail/direct message templates for high-conversion outreach.
+
