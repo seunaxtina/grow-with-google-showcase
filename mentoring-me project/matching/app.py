@@ -61,7 +61,18 @@ try:
     if hasattr(st, "secrets"):
         for key, value in st.secrets.items():
             if isinstance(value, (str, int, float, bool)):
-                os.environ[key] = str(value)
+                clean_val = str(value).strip().strip('"').strip("'")
+                os.environ[key] = clean_val
+                os.environ[key.upper()] = clean_val
+            elif isinstance(value, dict) or hasattr(value, "items"):
+                for sub_k, sub_v in value.items():
+                    if isinstance(sub_v, (str, int, float, bool)):
+                        clean_sub_v = str(sub_v).strip().strip('"').strip("'")
+                        os.environ[f"{key.upper()}_{sub_k.upper()}"] = clean_sub_v
+                        if key.lower() == "google" and sub_k.lower() in ("client_id", "id"):
+                            os.environ["GOOGLE_CLIENT_ID"] = clean_sub_v
+                        if key.lower() == "google" and sub_k.lower() in ("client_secret", "secret"):
+                            os.environ["GOOGLE_CLIENT_SECRET"] = clean_sub_v
 except Exception:
     pass
 
@@ -931,10 +942,42 @@ def api_get_sso_url(provider: str, role: str = "MENTEE", mode: str = "signin", i
             params["invite_code"] = invite_code
         response = api_http.get(f"{API_URL}/auth/sso/authorize-url", params=params)
         if response.status_code == 200:
-            return response.json().get("auth_url")
-        return None
+            auth_url = response.json().get("auth_url")
+            if auth_url:
+                return auth_url
     except Exception:
-        return None
+        pass
+
+    # Streamlit Cloud secrets / environment direct fallback
+    if provider.lower() == "google":
+        g_cid = None
+        if hasattr(st, "secrets"):
+            if "GOOGLE_CLIENT_ID" in st.secrets:
+                g_cid = str(st.secrets["GOOGLE_CLIENT_ID"])
+            elif "google" in st.secrets and isinstance(st.secrets["google"], dict):
+                g_cid = str(st.secrets["google"].get("client_id") or st.secrets["google"].get("GOOGLE_CLIENT_ID") or "")
+            elif "oauth" in st.secrets and isinstance(st.secrets["oauth"], dict):
+                g_cid = str(st.secrets["oauth"].get("google_client_id") or st.secrets["oauth"].get("GOOGLE_CLIENT_ID") or "")
+        if not g_cid:
+            g_cid = os.getenv("GOOGLE_CLIENT_ID", "")
+            
+        if g_cid:
+            g_cid = str(g_cid).strip().strip('"').strip("'")
+            if g_cid and "your_" not in g_cid:
+                import urllib.parse
+                frontend_base = get_frontend_base_url().rstrip("/")
+                g_params = {
+                    "client_id": g_cid,
+                    "redirect_uri": frontend_base,
+                    "response_type": "code",
+                    "scope": "openid email profile",
+                    "access_type": "offline",
+                    "prompt": "select_account",
+                    "state": f"provider=google&role={role}&mode={mode}" + (f"&invite={invite_code}" if invite_code else "")
+                }
+                return f"https://accounts.google.com/o/oauth2/v2/auth?{urllib.parse.urlencode(g_params)}"
+                
+    return None
 
 def api_signup(email, password, role, invite_code=None):
     try:
@@ -1286,11 +1329,16 @@ def api_mark_match_notified(match_id):
         return False
 
 def api_get_match_history():
+    if not st.session_state.get('access_token'):
+        return []
     headers = {"Authorization": f"Bearer {st.session_state['access_token']}"}
     try:
         response = api_http.get(f"{API_URL}/matches/history", headers=headers)
         if response.status_code == 200:
-            return response.json()
+            res = response.json()
+            if isinstance(res, list):
+                return [m for m in res if isinstance(m, dict)]
+            return []
         return []
     except Exception as e:
         st.error(f"API Connection Error: {e}")
@@ -2399,13 +2447,15 @@ def display_in_app_chat(match_id: str, partner_name: str, current_role: str, key
 def render_top_notifications_bell(current_role: str):
     st.write("")
     st.write("")
-    history = api_get_match_history() or []
-    unread_msg_summary = api_get_unread_messages() or {}
-    tot_unread_msgs = unread_msg_summary.get('total_unread', 0)
-    unread_by_match = unread_msg_summary.get('by_match', {})
+    raw_history = api_get_match_history()
+    history = [m for m in raw_history if isinstance(m, dict)] if isinstance(raw_history, list) else []
+    
+    unread_msg_summary = api_get_unread_messages()
+    tot_unread_msgs = int(unread_msg_summary.get('total_unread', 0)) if isinstance(unread_msg_summary, dict) else 0
+    unread_by_match = unread_msg_summary.get('by_match', {}) if isinstance(unread_msg_summary, dict) else {}
     
     if current_role == "MENTEE":
-        unnotified = [m for m in history if m.get('status') == 'ACCEPTED' and not m.get('mentee_notified', False)]
+        unnotified = [m for m in history if isinstance(m, dict) and m.get('status') == 'ACCEPTED' and not m.get('mentee_notified', False)]
         total_alerts = len(unnotified) + tot_unread_msgs
         bell_label = f"🔔 ({total_alerts})" if total_alerts > 0 else "🔔"
         
@@ -2460,7 +2510,7 @@ def render_top_notifications_bell(current_role: str):
                                     st.session_state['profile'] = None
                                     st.rerun(scope="fragment")
     else:  # MENTOR
-        unnotified_reqs = [m for m in history if m.get('status') == 'REQUESTED' and not m.get('mentor_notified', False)]
+        unnotified_reqs = [m for m in history if isinstance(m, dict) and m.get('status') == 'REQUESTED' and not m.get('mentor_notified', False)]
         total_alerts = len(unnotified_reqs) + tot_unread_msgs
         bell_label = f"🔔 ({total_alerts})" if total_alerts > 0 else "🔔"
         
@@ -4225,7 +4275,7 @@ else:
                 st.markdown("---")
                 st.stop()
                 
-        unnotified = [m for m in history if m['status'] == 'ACCEPTED' and not m.get('mentee_notified', False)]
+        unnotified = [m for m in history if isinstance(m, dict) and m.get('status') == 'ACCEPTED' and not m.get('mentee_notified', False)]
         unread_count = len(unnotified)
         
         col_greet, col_bell = st.columns([8, 2])
@@ -5648,7 +5698,7 @@ else:
                 st.markdown("---")
                 st.stop()
                 
-        unnotified_reqs = [m for m in history if m['status'] == 'REQUESTED' and not m.get('mentor_notified', False)]
+        unnotified_reqs = [m for m in history if isinstance(m, dict) and m.get('status') == 'REQUESTED' and not m.get('mentor_notified', False)]
         unread_count = len(unnotified_reqs)
         
         col_greet, col_bell = st.columns([8, 2])
