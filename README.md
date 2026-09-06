@@ -14,9 +14,6 @@
 
 > 🎬 **5-Minute Scenario Video Demonstration:**  
 > **[▶️ Click here to watch the Mentoring-Me Video Demonstration on Google Drive](https://drive.google.com/file/d/1qdDRKiq-G77xvIIfe3XvQ6xBTSC0joS3/view?usp=sharing)**  
->
-> 📄 **Written Capstone Report:**  
-> **[📖 Read the Full 3-Page Research Summary, Solution & Implementation Plan](RESEARCH_SUMMARY.md)**
 
 ---
 
