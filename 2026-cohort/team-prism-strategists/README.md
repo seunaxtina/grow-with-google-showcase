@@ -233,7 +233,7 @@ python evaluate_matching_algorithm.py
 
 ---
 
-## 🔮 6. Future Ideas — Breadcrumbs for the Next Cohort!
+## 🔮 6. Future Ideas
 
 To future Grow with Google Scholars building on this foundation, here are five high-impact expansion pathways:
 
