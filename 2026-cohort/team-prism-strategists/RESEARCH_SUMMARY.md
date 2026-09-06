@@ -93,12 +93,12 @@ The project followed a structured, phased execution model. Each phase was assign
 
 | Phase | Description | Timeline | Team Lead |
 |---|---|---|---|
-| **Phase 1: Data Analysis and EDA** | Acquire, clean, and analyze the Stack Overflow 2020 Developer Survey. Perform gender-disaggregated statistical analysis. Produce the five core empirical findings. | Weeks 1 to 3 | Amanda Malahlela (Data Analytics) |
-| **Phase 2: Backend API and Matching Engine** | Design the five-factor weighted scoring algorithm. Build FastAPI REST endpoints for registration, authentication, profile management, and matching. Implement equity overlays and dynamic weight adjustment. | Weeks 3 to 6 | Martha Afful (Advanced Data Analytics) |
-| **Phase 3: Frontend Dashboard** | Develop the Streamlit multi-role dashboard (Mentee, Mentor, Admin views). Build the explainable compatibility breakdown UI, direct messaging, calendar sync, and the Outreach Hub interface. | Weeks 4 to 7 | Medha Yasa (IT Automation) |
-| **Phase 4: Security and 2FA** | Implement Bcrypt password hashing, JWT stateless sessions, 2FA email OTP verification, anti-enumeration protection, and audit logging. | Weeks 5 to 7 | Seuna Christina (Cybersecurity) |
-| **Phase 5: Testing and Validation** | Execute 23 automated pytest tests covering matching accuracy, authentication flows, and security edge cases. Benchmark the algorithm against a random-assignment baseline across 49,294 records. | Weeks 7 to 8 | Full Team |
-| **Phase 6: Deployment and User Registration** | Containerize with Docker Compose. Deploy the live platform. Onboard 11 real users (5 mentees, 6 mentors) and validate production match quality. | Weeks 8 to 9 | Full Team |
+| **Phase 1: Data Analysis and EDA** | Acquire, clean, and analyze the Stack Overflow 2020 Developer Survey. Perform gender-disaggregated statistical analysis. Produce the five core empirical findings. | July 19 to August 2 | Amanda Malahlela (Data Analytics) |
+| **Phase 2: Backend API and Matching Engine** | Design the five-factor weighted scoring algorithm. Build FastAPI REST endpoints for registration, authentication, profile management, and matching. Implement equity overlays and dynamic weight adjustment. | August 2 to August 16 | Martha Afful (Advanced Data Analytics) |
+| **Phase 3: Frontend Dashboard** | Develop the Streamlit multi-role dashboard (Mentee, Mentor, Admin views). Build the explainable compatibility breakdown UI, direct messaging, calendar sync, and the Outreach Hub interface. | August 9 to August 23 | Medha Yasa (IT Automation) |
+| **Phase 4: Security and 2FA** | Implement Bcrypt password hashing, JWT stateless sessions, 2FA email OTP verification, anti-enumeration protection, and audit logging. | August 16 to August 27 | Seuna Christina (Cybersecurity) |
+| **Phase 5: Testing and Validation** | Execute 23 automated pytest tests covering matching accuracy, authentication flows, and security edge cases. Benchmark the algorithm against a random-assignment baseline across 49,294 records. | August 27 to September 1 | Full Team |
+| **Phase 6: Deployment and User Registration** | Containerize with Docker Compose. Deploy the live platform. Onboard 11 real users (5 mentees, 6 mentors) and validate production match quality. | September 1 to September 4 | Full Team |
 
 ### 3.2 Resources
 
